@@ -1,8 +1,9 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import {BellRinging, CaretDown, MapPin} from "phosphor-react-native"
 
-
+import Sun from '../../assets/01d.svg';
+import Sun02 from '../../assets/02d.svg';
 
 export function Home() {
   return (
@@ -18,11 +19,62 @@ export function Home() {
                 </View>
                 <BellRinging color="#fff" size={32} />
             </View>
-
+           
             <View style={styles.info}>
-              <Text>Bom dia, Diego!</Text>
+              <Text style={styles.infoTextUser}>Bom dia, Diego!</Text>
+              <Sun width={200} height={200}/>
+            <Text style={styles.infoTextClima}>21°C</Text>
+            <Text style={styles.infoTextMaxMin}>Max.: 31° Min.: 25°</Text>
+              
             </View>
         </View>   
+
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>Previsão Para os Próximos 7 Dias </Text>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={styles.footerCard}>
+            <Text style={styles.footerCardTitle}>Seg</Text>
+            <Sun02 width={40} height={40}/>
+            <Text style={styles.footerCardPreview}>18°C</Text>
+          </View>
+
+          <View style={styles.footerCard}>
+            <Text style={styles.footerCardTitle}>Ter</Text>
+            <Sun02 width={40} height={40}/>
+            <Text style={styles.footerCardPreview}>20°C</Text>
+          </View>
+
+          <View style={styles.footerCard}>
+            <Text style={styles.footerCardTitle}>Qua</Text>
+            <Sun02 width={40} height={40}/>
+            <Text style={styles.footerCardPreview}>22°C</Text>
+          </View>
+
+          <View style={styles.footerCard}>
+            <Text style={styles.footerCardTitle}>Qui</Text>
+            <Sun02 width={40} height={40}/>
+            <Text style={styles.footerCardPreview}>19°C</Text>
+          </View>
+
+          <View style={styles.footerCard}>
+            <Text style={styles.footerCardTitle}>Sex</Text>
+            <Sun02 width={40} height={40}/>
+            <Text style={styles.footerCardPreview}>17°C</Text>
+          </View>
+
+          <View style={styles.footerCard}>
+            <Text style={styles.footerCardTitle}>Sab</Text>
+            <Sun02 width={40} height={40}/>
+            <Text style={styles.footerCardPreview}>23°C</Text>
+          </View>
+
+          <View style={styles.footerCard}>
+            <Text style={styles.footerCardTitle}>Dom</Text>
+            <Sun02 width={40} height={40}/>
+            <Text style={styles.footerCardPreview}>25°C</Text>
+          </View>
+          </ScrollView>
+        </View>
     </LinearGradient>
   );
 }
@@ -30,10 +82,12 @@ export function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
   },
   content: {
     paddingTop: 65,
     paddingHorizontal: 35,
+    alignItems: "center",
   },
   header: {
     width: "100%",
@@ -52,5 +106,62 @@ const styles = StyleSheet.create({
     fontWeight: "700"
   },
 
-  info: {}
+  info: {
+    paddingVertical: 70,
+    alignItems: "center",
+    gap: 10, 
+
+  },
+
+  infoTextUser: {
+    fontSize: 32,
+    fontWeight: "400",
+    color: "#fff"
+  },
+
+  infoTextClima: {
+    fontSize: 100,
+    fontWeight: "300",
+    color: "#fff", 
+  },
+
+  infoTextMaxMin: {
+    fontSize: 20,
+    fontWeight: "600",
+    color: "#fff"
+
+  },
+
+  footer: {
+    width: "100%",
+    paddingLeft: 40,
+    gap: 10,
+  },
+
+  footerText: {
+    fontSize: 22,
+    fontWeight: "400",
+    color: "#fff"
+  },
+
+  footerCard: {
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 10,
+    width: 99,
+    height: 129,
+    backgroundColor: "rgba(255, 255, 255, 0.23)",
+    borderRadius: 8,
+    marginRight: 14,
+  },
+
+  footerCardTitle: {
+    fontSize: 17,
+    fontWeight: "700",
+  },
+
+  footerCardPreview: {
+    fontSize: 24,
+    fontWeight: "400",
+  },
 });
